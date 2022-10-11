@@ -11,7 +11,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Order",schema ="public")
+@Table(name="foodorder")
 public class Order {
 	
 	@Id
@@ -43,6 +43,10 @@ public class Order {
 	private float price;
 	
 	
+	
+	public Order() {
+		
+	}
 	public Order(String iteam, float quantity, String additionalIteam, float offer, LocalDate deliveryTime, String filter,
 			String coupon, float price) {
 		
@@ -109,7 +113,6 @@ public class Order {
 				+ additionalIteam + ", offer=" + offer + ", deliveryTime=" + deliveryTime + ", filter=" + filter
 				+ ", coupon=" + coupon + ", price=" + price + "]";
 	}
-	
 	
 	
 	
