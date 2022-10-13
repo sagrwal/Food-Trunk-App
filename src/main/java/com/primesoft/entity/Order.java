@@ -1,5 +1,6 @@
 package com.primesoft.entity;
 
+import java.sql.Time;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -11,11 +12,11 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="foodorder")
+@Table(name="orders",schema="food_truck")
 public class Order {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
 	
 	@Column(name="iteam")
@@ -24,14 +25,14 @@ public class Order {
 	@Column(name="quantity")
 	private float quantity;
 	
-	@Column(name="additionalIteam")
+	@Column(name="additeam")
 	private String additionalIteam;
 	
 	@Column(name="offer")
 	private float offer;
 	
-	@Column(name="deliveryTime")
-	private LocalDate deliveryTime;
+	@Column(name="deliverytime")
+	private int deliveryTime;
 	
 	@Column(name="filter")
 	private String filter;
@@ -47,7 +48,7 @@ public class Order {
 	public Order() {
 		
 	}
-	public Order(String iteam, float quantity, String additionalIteam, float offer, LocalDate deliveryTime, String filter,
+	public Order(String iteam, float quantity, String additionalIteam, float offer, int deliveryTime, String filter,
 			String coupon, float price) {
 		
 		this.iteam = iteam;
@@ -83,10 +84,10 @@ public class Order {
 	public void setOffer(float offer) {
 		this.offer = offer;
 	}
-	public LocalDate getDeliveryTime() {
+	public int getDeliveryTime() {
 		return deliveryTime;
 	}
-	public void setDeliveryTime(LocalDate deliveryTime) {
+	public void setDeliveryTime(int deliveryTime) {
 		this.deliveryTime = deliveryTime;
 	}
 	public String getFilter() {

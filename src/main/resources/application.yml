@@ -1,17 +1,20 @@
 spring:
   datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: primesoft
-    
- 
+   # driver-class-name: org.postgresql.Driver
+   # url: jdbc:postgresql://localhost:5432/postgres
+   # username: postgres
+   # password: primesoft
+     url: jdbc:mysql://localhost:3306/food_truck
+     username: root
+     password: primesoft
+
   jpa:
      properties:
           hibernate:
                 jdbc.lob.non_contextual_creation: true
-                dialect: org.hibernate.dialect.PostgreSQLDialect
-                ddl-auto: update
+                #dialect: org.hibernate.dialect.PostgreSQLDialect
+                ddl-auto: create
+          dialect: org.hibernate.dialect.MySQL8Dialect
 server:
    port: 9099
   
