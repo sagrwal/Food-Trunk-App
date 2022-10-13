@@ -8,7 +8,7 @@ import com.primesoft.entity.Order;
 @Repository
 public interface OrderRepository  extends JpaRepository<Order,Integer> {
 
-	Order findByIteam(String iteam);
+	Order findById(int id);
 
 	
 

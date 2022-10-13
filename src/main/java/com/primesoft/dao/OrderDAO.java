@@ -10,6 +10,8 @@ public interface OrderDAO {
 	public Order getOrder(int id);
 	
 	public Order addOrders(Order ord);
+	public boolean updateOrder(int id,Order order);
+	public void deleteById(int id);
 	
 
 }

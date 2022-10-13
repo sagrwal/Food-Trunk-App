@@ -1,20 +1,20 @@
 package com.primesoft.entity;
 
-import java.sql.Time;
-import java.time.LocalDate;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+
 import javax.persistence.Table;
 
 @Entity
 @Table(name="orders",schema="food_truck")
 public class Order {
 	
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
@@ -59,6 +59,15 @@ public class Order {
 		this.filter = filter;
 		this.coupon = coupon;
 		this.price = price;
+	}
+	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	
+	public int getId() {
+		return  id;
 	}
 	public String getIteam() {
 		return iteam;
@@ -114,6 +123,8 @@ public class Order {
 				+ additionalIteam + ", offer=" + offer + ", deliveryTime=" + deliveryTime + ", filter=" + filter
 				+ ", coupon=" + coupon + ", price=" + price + "]";
 	}
+	
+	
 	
 	
 	
