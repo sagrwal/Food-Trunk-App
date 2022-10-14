@@ -49,12 +49,12 @@ public class OrderController {
 	public void deleteOrder(@PathVariable int id) {
 	     ordDao.deleteById(id);
 	}
-	
+	/*
 	@PostMapping("/ordup/{id}")
-	public boolean updateOrder(@RequestBody int id,Order order) {
-		return ordDao.updateOrder(id,order);
+	public boolean updateOrder(@RequestBody int id) {
+		return ordDao.updateOrder(id);
 	}
-	
+	*/
 	
 	
 	
