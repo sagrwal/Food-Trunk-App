@@ -22,8 +22,8 @@ public class Menu {
 	@Column(name="truckname")
 	private String foodTruckName;
 	
-	@Column(name="iteam")
-	private List iteams;
+	@Column(name="item")
+	private String items;
 	
 	@Column(name="price")
 	private float price;
@@ -38,11 +38,11 @@ public class Menu {
 	public void setFoodTruckName(String foodTruckName) {
 		this.foodTruckName = foodTruckName;
 	}
-	public List getIteams() {
-		return iteams;
+	public String getItems() {
+		return items;
 	}
-	public void setIteams(List iteams) {
-		this.iteams = iteams;
+	public void setItems(String items) {
+		this.items = items;
 	}
 	public float getPrice() {
 		return price;
@@ -61,7 +61,7 @@ public class Menu {
 	}
 	@Override
 	public String toString() {
-		return "Menu [id=" + id + ", foodTruckName=" + foodTruckName + ", iteams=" + iteams + ", price=" + price
+		return "Menu [id=" + id + ", foodTruckName=" + foodTruckName + ", iteams=" + items + ", price=" + price
 				+ ", offer=" + offer + "]";
 	}
 	

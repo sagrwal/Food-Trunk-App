@@ -12,11 +12,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.primesoft.constant.AppConstant;
+import com.primesoft.entity.Menu;
 import com.primesoft.entity.Order;
 import com.primesoft.exception.AddOrderException;
 import com.primesoft.exception.DeleteOrderException;
 import com.primesoft.exception.EntityNotFoundException;
+import com.primesoft.exception.MenuException;
 import com.primesoft.exception.OrderNotFoundException;
+import com.primesoft.exception.UpdateException;
 import com.primesoft.props.AppProperties;
 import com.primesoft.repo.MenuRepository;
 import com.primesoft.repo.OrderRepository;
@@ -94,18 +97,19 @@ public class OrderDAOImpl implements OrderDAO {
     	throw new AddOrderException(e.getLocalizedMessage()+msg);
     }
 	}
-	/*
+	
 	@Override
 	public boolean updateOrder(int id)throws UpdateException {
 		String msg=AppConstant.EMPTY_STR;
 		boolean updateResult = false;
 		
 		try {
+			
 			if(ordrepo.existsById(id)) {
-		    Optional<Order> ord= ordrepo.findById(id);
-		    Registration reg = reg.get();       
-		    reg.setApproved("yes");
-		    ordrepo.saveAll(reg);
+		       // String ordName= Order.setIteam();
+				List<Order> ord= ordrepo.updateById(id);
+		    
+		   
 			updateResult = true;
 			msg =AppConstant.ORD_UPDATE_SUCC;
 			 logger.error(msg);
@@ -121,7 +125,7 @@ public class OrderDAOImpl implements OrderDAO {
 		return updateResult;
 		
 	}
-	*/
+	
 	
 	@Override
 	public void deleteById(int id) throws DeleteOrderException{
@@ -144,5 +148,28 @@ public class OrderDAOImpl implements OrderDAO {
 			
 		}
 	}
+	
+	
+	
+	@Override
+	public List<Menu> getMenuIDByName(String name) throws MenuException {
+		String msg=AppConstant.EMPTY_STR;
+		try {
+			
+			List<Menu> ids = menurepo.getMenuIDByName(name);
+			if (ids != null)
+				return ids;
+			else
+				msg = "Item name is Invalid!";
+			logger.info(msg);
+			return null;
+		} catch (Exception e) {
+			logger.error(e.getMessage() + ": Error in getMenuIDByName()");
+			throw new MenuException(e.getMessage() + ": Error in getMenuIDByName()");
+		}
 
-}
+	}
+		
+	}
+
+

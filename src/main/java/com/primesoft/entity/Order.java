@@ -1,7 +1,6 @@
 package com.primesoft.entity;
 
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,8 +18,8 @@ public class Order {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
 	
-	@Column(name="iteam")
-	private String iteam;
+	@Column(name="item")
+	private static String item;
 	
 	@Column(name="quantity")
 	private float quantity;
@@ -48,10 +47,10 @@ public class Order {
 	public Order() {
 		
 	}
-	public Order(String iteam, float quantity, String additionalIteam, float offer, int deliveryTime, String filter,
+	public Order(String item, float quantity, String additionalIteam, float offer, int deliveryTime, String filter,
 			String coupon, float price) {
 		
-		this.iteam = iteam;
+		this.item = item;
 		this.quantity = quantity;
 		this.additionalIteam = additionalIteam;
 		this.offer = offer;
@@ -69,11 +68,11 @@ public class Order {
 	public int getId() {
 		return  id;
 	}
-	public String getIteam() {
-		return iteam;
+	public  String getIteam() {
+		return item;
 	}
-	public void setIteam(String iteam) {
-		this.iteam = iteam;
+	public static void setIteam(String item) {
+		//this.item = item;
 	}
 	public float getQuantity() {
 		return quantity;
@@ -119,7 +118,7 @@ public class Order {
 	}
 	@Override
 	public String toString() {
-		return "Order [id=" + id + ", iteam=" + iteam + ", quantity=" + quantity + ", additionalIteam="
+		return "Order [id=" + id + ", iteam=" + item + ", quantity=" + quantity + ", additionalIteam="
 				+ additionalIteam + ", offer=" + offer + ", deliveryTime=" + deliveryTime + ", filter=" + filter
 				+ ", coupon=" + coupon + ", price=" + price + "]";
 	}
