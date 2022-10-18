@@ -57,8 +57,8 @@ public class OrderController {
 	}
 	
 	@PutMapping("/ordup/{id}")
-	public boolean updateOrder(@RequestBody int id) {
-		return ordDao.updateOrder(id);
+	public boolean updateOrder(@RequestBody Order o) {
+		return ordDao.updateOrder(o);
 	}
 	
 	

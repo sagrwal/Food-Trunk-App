@@ -40,6 +40,7 @@ public class OrderDAOImpl implements OrderDAO {
 	
 	@Autowired
 	MenuRepository menurepo;
+	public Object updateOrder;
 	
 	
 	public OrderDAOImpl(OrderRepository ordrepo,MenuRepository menrepo ,AppProperties prop) {
@@ -99,15 +100,18 @@ public class OrderDAOImpl implements OrderDAO {
 	}
 	
 	@Override
-	public boolean updateOrder(int id)throws UpdateException {
+	public boolean updateOrder(Order o)throws UpdateException {
 		String msg=AppConstant.EMPTY_STR;
 		boolean updateResult = false;
 		
 		try {
+			int id= o.getId();
 			
 			if(ordrepo.existsById(id)) {
 		       // String ordName= Order.setIteam();
-				List<Order> ord= ordrepo.updateById(id);
+				Order or = getOrder(id);
+				
+				List<Order> ord= ordrepo.updateById(or);
 		    
 		   
 			updateResult = true;

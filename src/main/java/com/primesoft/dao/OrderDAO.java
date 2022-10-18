@@ -16,7 +16,7 @@ public interface OrderDAO {
 
 	List<Menu> getMenuIDByName(String name);
 
-	boolean updateOrder(int id);
+	boolean updateOrder(Order o);
 	
 
 }
