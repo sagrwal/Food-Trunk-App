@@ -6,8 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 import javax.persistence.Table;
+
+
 
 @Entity
 @Table(name="orders",schema="food_truck")
@@ -19,7 +20,7 @@ public class Order {
     private Integer id;
 	
 	@Column(name="item")
-	private static String item;
+	private  String item;
 	
 	@Column(name="quantity")
 	private float quantity;
@@ -47,14 +48,15 @@ public class Order {
 	public Order() {
 		
 	}
-	public Order(String item, float quantity, String additionalIteam, float offer, int deliveryTime, String filter,
+	
+	public Order(String item, float quantity, String additionalIteam, float offer,  String filter,
 			String coupon, float price) {
 		
 		this.item = item;
 		this.quantity = quantity;
 		this.additionalIteam = additionalIteam;
 		this.offer = offer;
-		this.deliveryTime = deliveryTime;
+		//this.deliveryTime = deliveryTime;
 		this.filter = filter;
 		this.coupon = coupon;
 		this.price = price;
@@ -71,8 +73,8 @@ public class Order {
 	public  String getIteam() {
 		return item;
 	}
-	public static void setIteam(String item) {
-		//this.item = item;
+	public  void setIteam(String item) {
+		this.item = item;
 	}
 	public float getQuantity() {
 		return quantity;

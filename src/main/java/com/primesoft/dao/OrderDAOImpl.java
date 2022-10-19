@@ -19,10 +19,10 @@ import com.primesoft.exception.DeleteOrderException;
 import com.primesoft.exception.EntityNotFoundException;
 import com.primesoft.exception.MenuException;
 import com.primesoft.exception.OrderNotFoundException;
-import com.primesoft.exception.UpdateException;
 import com.primesoft.props.AppProperties;
 import com.primesoft.repo.MenuRepository;
 import com.primesoft.repo.OrderRepository;
+import com.primesoft.repo.UserRepository;
 
 
 
@@ -40,13 +40,16 @@ public class OrderDAOImpl implements OrderDAO {
 	
 	@Autowired
 	MenuRepository menurepo;
-	public Object updateOrder;
+	
+	@Autowired
+	UserRepository userepo;
 	
 	
-	public OrderDAOImpl(OrderRepository ordrepo,MenuRepository menrepo ,AppProperties prop) {
+	public OrderDAOImpl(OrderRepository ordrepo,MenuRepository menrepo ,UserRepository usrepo,AppProperties prop) {
 		
 		this.ordrepo = ordrepo;
 		this.menurepo= menrepo;
+		this.userepo=usrepo;
 		this.messages=prop.getMessages();
 			
 	}
@@ -98,7 +101,7 @@ public class OrderDAOImpl implements OrderDAO {
     	throw new AddOrderException(e.getLocalizedMessage()+msg);
     }
 	}
-	
+	/*
 	@Override
 	public boolean updateOrder(Order o)throws UpdateException {
 		String msg=AppConstant.EMPTY_STR;
@@ -130,7 +133,7 @@ public class OrderDAOImpl implements OrderDAO {
 		
 	}
 	
-	
+	*/
 	@Override
 	public void deleteById(int id) throws DeleteOrderException{
 		String msg=AppConstant.EMPTY_STR;
