@@ -1,5 +1,7 @@
 package com.primesoft.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,11 +9,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+
+
 
 
 @Entity
 @Table(name="menu",schema="food_truck")
-public class Menu {
+public class Menu implements Serializable {
+	
 	
 	private static final long serialVersionUID = 1L;  
 	@Id

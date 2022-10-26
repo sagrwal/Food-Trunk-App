@@ -1,6 +1,4 @@
 package com.primesoft.dao;
-
-
 import java.util.List;
 import java.util.Map;
 
@@ -24,9 +22,6 @@ import com.primesoft.repo.MenuRepository;
 import com.primesoft.repo.OrderRepository;
 import com.primesoft.repo.UserRepository;
 
-
-
-
 @Component
 @Service
 @Transactional
@@ -45,6 +40,9 @@ public class OrderDAOImpl implements OrderDAO {
 	UserRepository userepo;
 	
 	
+	public OrderDAOImpl() {
+		super();
+	}
 	public OrderDAOImpl(OrderRepository ordrepo,MenuRepository menrepo ,UserRepository usrepo,AppProperties prop) {
 		
 		this.ordrepo = ordrepo;

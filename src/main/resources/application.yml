@@ -10,16 +10,19 @@ spring:
 
   jpa:
      properties:
+          defer-datasource-initialization: true 
           hibernate:
                 jdbc.lob.non_contextual_creation: true
                 #dialect: org.hibernate.dialect.PostgreSQLDialect
-                ddl-auto: create
+                ddl-auto: update
           dialect: org.hibernate.dialect.MySQL8Dialect
 server:
    port: 9099
   
 My application Properties: 
       spring.batch.job.enabled: false
+      
+      
 
 emp-api:
   messages:
@@ -31,4 +34,5 @@ emp-api:
     ordDeleteFail: Order Deletion Failed
     ordFoundSucc: Order  found 
     ordFoundFail: Order not found
-    
+   
+   
