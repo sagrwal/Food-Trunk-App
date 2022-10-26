@@ -7,11 +7,11 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@ComponentScan({"com.primesoft","com.primesoft.repo.OrderRepository","com.primesoft.dao"})
+@ComponentScan({"com.primesoft","com.primesoft.repo.*","com.primesoft.dao.*"})
 @EnableJpaRepositories(basePackages="com.primesoft.repo.*")
 @SpringBootApplication
-@EntityScan({"com.primesoft.entity"})
-@EnableAutoConfiguration
+@EntityScan({"com.primesoft.entity.*"})
+//@EnableAutoConfiguration
 public class FoodTruckAppApplication {
 
 	public static void main(String[] args) {

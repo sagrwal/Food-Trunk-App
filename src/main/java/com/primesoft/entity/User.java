@@ -9,11 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 
 @Entity
-@Table(name = "users",schema="food_truck")
+@Table(name ="users",schema="food_truck")
 public class User implements Serializable{
 	
 	

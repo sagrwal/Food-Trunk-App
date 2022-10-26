@@ -33,6 +33,7 @@ public class OrderController {
 	
 	@GetMapping("")
 	public String viewHomePage() {
+		
 		return "index";
 	}
 	

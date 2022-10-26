@@ -30,19 +30,19 @@ public class OrderDAOImpl implements OrderDAO {
 	private Map<String, String> messages;
 	
 	
-	@Autowired
+	//@Autowired
     OrderRepository ordrepo;
 	
 	@Autowired
 	MenuRepository menurepo;
 	
-	@Autowired
+	//@Autowired
 	UserRepository userepo;
 	
 	
 	public OrderDAOImpl() {
 		super();
-	}
+		}
 	public OrderDAOImpl(OrderRepository ordrepo,MenuRepository menrepo ,UserRepository usrepo,AppProperties prop) {
 		
 		this.ordrepo = ordrepo;
