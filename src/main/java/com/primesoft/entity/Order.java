@@ -1,37 +1,43 @@
 package com.primesoft.entity;
 
-import java.time.LocalDate;
+
+import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+
+
+
 @Entity
-@Table(name="foodorder")
-public class Order {
+@Table(name="orders",schema="food_truck")
+public class Order implements Serializable{
 	
+
+	
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
 	
-	@Column(name="iteam")
-	private String iteam;
+	@Column(name="item")
+	private  String item;
 	
 	@Column(name="quantity")
 	private float quantity;
 	
-	@Column(name="additionalIteam")
+	@Column(name="additeam")
 	private String additionalIteam;
 	
 	@Column(name="offer")
 	private float offer;
 	
-	@Column(name="deliveryTime")
-	private LocalDate deliveryTime;
+	@Column(name="deliverytime")
+	private int deliveryTime;
 	
 	@Column(name="filter")
 	private String filter;
@@ -47,23 +53,33 @@ public class Order {
 	public Order() {
 		
 	}
-	public Order(String iteam, float quantity, String additionalIteam, float offer, LocalDate deliveryTime, String filter,
+	
+	public Order(String item, float quantity, String additionalIteam, float offer,  String filter,
 			String coupon, float price) {
 		
-		this.iteam = iteam;
+		this.item = item;
 		this.quantity = quantity;
 		this.additionalIteam = additionalIteam;
 		this.offer = offer;
-		this.deliveryTime = deliveryTime;
+		//this.deliveryTime = deliveryTime;
 		this.filter = filter;
 		this.coupon = coupon;
 		this.price = price;
 	}
-	public String getIteam() {
-		return iteam;
+	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
-	public void setIteam(String iteam) {
-		this.iteam = iteam;
+
+	
+	public int getId() {
+		return  id;
+	}
+	public  String getIteam() {
+		return item;
+	}
+	public  void setIteam(String item) {
+		this.item = item;
 	}
 	public float getQuantity() {
 		return quantity;
@@ -83,10 +99,10 @@ public class Order {
 	public void setOffer(float offer) {
 		this.offer = offer;
 	}
-	public LocalDate getDeliveryTime() {
+	public int getDeliveryTime() {
 		return deliveryTime;
 	}
-	public void setDeliveryTime(LocalDate deliveryTime) {
+	public void setDeliveryTime(int deliveryTime) {
 		this.deliveryTime = deliveryTime;
 	}
 	public String getFilter() {
@@ -109,10 +125,12 @@ public class Order {
 	}
 	@Override
 	public String toString() {
-		return "Order [id=" + id + ", iteam=" + iteam + ", quantity=" + quantity + ", additionalIteam="
+		return "Order [id=" + id + ", iteam=" + item + ", quantity=" + quantity + ", additionalIteam="
 				+ additionalIteam + ", offer=" + offer + ", deliveryTime=" + deliveryTime + ", filter=" + filter
 				+ ", coupon=" + coupon + ", price=" + price + "]";
 	}
+	
+	
 	
 	
 	

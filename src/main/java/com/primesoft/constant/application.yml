@@ -1,0 +1,18 @@
+
+My application Properties: 
+      spring.batch.job.enabled: false
+      
+      
+
+emp-api:
+  messages:
+    ordSaveSucc: Order Saved Successfully
+    ordSaveFail: Order Saving Failed
+    ordUpdateSucc: Order Updated Successfully
+    ordUpdateFail: Order Update Failed
+    ordDeleteSucc: Order Deleted Successfully
+    ordDeleteFail: Order Deletion Failed
+    ordFoundSucc: Order  found 
+    ordFoundFail: Order not found
+   
+   
